@@ -3,6 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
+import { CloseButton } from 'react-bootstrap';
 
 import '../App.css';
 
@@ -21,10 +22,19 @@ export const ProductDetailsTopNavbar = () => {
   return (
     <Navbar bg="light" variant="light" expand="lg" fixed="top">
       <Container>
-        <Navbar.Brand as={Link} to="/">Market place demo</Navbar.Brand>
-        <Nav.Link as={Link} to="/" >Home</Nav.Link>
+        <Navbar.Brand as={Link} to="/">
+          <img
+            alt=""
+            src="/assets/red.png"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{' '}
+          Market place demo
+        </Navbar.Brand>
         <div className='space'></div>
-        <Nav.Link onClick={close}>X</Nav.Link>
+        <Nav.Link onClick={close}><CloseButton /></Nav.Link>
+
       </Container>
     </Navbar>
   )
