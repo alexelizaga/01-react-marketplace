@@ -6,17 +6,15 @@ import { Link } from 'react-router-dom';
 import { CloseButton } from 'react-bootstrap';
 
 import '../App.css';
+import { sendMessage } from '../helper/sendMessage';
 
 
 export const ProductDetailsTopNavbar = () => {
   const close = () => {
-    window.parent.postMessage(
-      {
-        type: "order",
-        message: 'close'
-      },
-      "*"
-    );
+    sendMessage({
+      type: 'order',
+      message: 'close'
+    });
   }
 
   return (

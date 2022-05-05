@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import '../App.css';
 import { HomeTopNavbar } from '../components/HomeTopNavbar';
 import { ProductCard } from '../components/ProductCard';
+import { sendMessage } from '../helper/sendMessage';
 
 export const HomeScreen = () => {
 
@@ -12,24 +13,18 @@ export const HomeScreen = () => {
   const canSendHideNavbar = useRef(true);
 
   const showNavbar = () => {
-    window.parent.postMessage(
-      {
-        type: "order",
-        message: 'showNavbar'
-      },
-      "*"
-    );
+    sendMessage({
+      type: 'order',
+      message: 'showNavbar'
+    });
     canSendHideNavbar.current = true;
   }
 
   const hideNavbar = () => {
-    window.parent.postMessage(
-      {
-        type: "order",
-        message: 'hideNavbar'
-      },
-      "*"
-    );
+    sendMessage({
+      type: 'order',
+      message: 'hideNavbar'
+    });
     canSendHideNavbar.current = false;
   }
 
@@ -51,13 +46,10 @@ export const HomeScreen = () => {
   }
 
   useEffect(() => {
-    window.parent.postMessage(
-      {
-        type: "order",
-        message: 'showTabs'
-      },
-      "*"
-    );
+    sendMessage({
+      type: 'order',
+      message: 'showTabs'
+    });
   }, []);
 
   return (
