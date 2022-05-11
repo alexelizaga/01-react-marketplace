@@ -7,7 +7,7 @@ export const HeroCard = ({
   productDescription,
   productPublisher
 }: any) => {
-  const imagePath = `/assets/heroes/${id}.jpg`;
+  const imagePath = `/assets/products/${id}.jpg`;
 return (
     <div className='card animate__animated animate__fadeIn'>
       <div className='row no-gutters'>

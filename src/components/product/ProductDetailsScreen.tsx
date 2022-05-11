@@ -60,7 +60,7 @@ export const ProductDetailsScreen = () => {
     productDescription
   } = product;
 
-  const imgPath = `/assets/heroes/${id}.jpg`;
+  const imgPath = `/assets/products/${id}.jpg`;
 
   return (
     <div className='ProductDetailsScreen'>
