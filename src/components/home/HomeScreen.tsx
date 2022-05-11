@@ -7,8 +7,8 @@ import { SearchScreen } from '../search/SearchScreen';
 
 export const HomeScreen = () => {
 
-  const [offset, setOffset] = useState(0);
-  const canSendHideNavbar = useRef(true);
+  // const [offset, setOffset] = useState(0);
+  // const canSendHideNavbar = useRef(true);
 
   // const showNavbar = () => {
   //   sendMessage({
