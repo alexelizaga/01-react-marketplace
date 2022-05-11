@@ -48,6 +48,10 @@ export const HomeScreen = () => {
       type: 'order',
       message: 'showTabs'
     });
+    sendMessage({
+      type: 'order',
+      message: 'showNavbar'
+    });
   }, []);
 
   return (
