@@ -48,7 +48,7 @@ export const SearchScreen = () => {
         </form>
       </div>
 
-      <div className="row row-cols-2 row-cols-lg-3 align-items-stretch mt-4">
+      <div className="row row-cols-1 row-cols-lg-3 align-items-stretch mt-4">
         {
           (searchText !== '' && productsFiltered.length === 0)
             && <div className='alert alert-danger animate__animated animate__fadeIn'>
