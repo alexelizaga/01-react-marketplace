@@ -10,7 +10,7 @@ export const ProductList = ({ category }: any) => {
     <>
       <h1 className='mt-3'>{category}</h1>
       <div
-        className="row row-cols-2 row-cols-lg-3 align-items-stretch mt-4"
+        className="row row-cols-1 row-cols-lg-3 align-items-stretch mt-4"
       >
         {
           products.map( product => (

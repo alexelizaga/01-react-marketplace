@@ -35,7 +35,7 @@ export const ProductDetailsTopNavbar = ({ productName = 'producto' }) => {
             height="30"
             className="d-inline-block align-top"
           />{' '} */}
-          <span className='navbar-title'>Detalles de tu { productName }</span>
+          <span className='navbar-title'>{ productName }</span>
         </Navbar.Brand>
         <div className='space'></div>
         <Navbar.Brand onClick={close}>
