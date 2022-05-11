@@ -10,38 +10,38 @@ export const HomeScreen = () => {
   const [offset, setOffset] = useState(0);
   const canSendHideNavbar = useRef(true);
 
-  const showNavbar = () => {
-    sendMessage({
-      type: 'order',
-      message: 'showNavbar'
-    });
-    canSendHideNavbar.current = true;
-  }
+  // const showNavbar = () => {
+  //   sendMessage({
+  //     type: 'order',
+  //     message: 'showNavbar'
+  //   });
+  //   canSendHideNavbar.current = true;
+  // }
 
-  const hideNavbar = () => {
-    sendMessage({
-      type: 'order',
-      message: 'hideNavbar'
-    });
-    canSendHideNavbar.current = false;
-  }
+  // const hideNavbar = () => {
+  //   sendMessage({
+  //     type: 'order',
+  //     message: 'hideNavbar'
+  //   });
+  //   canSendHideNavbar.current = false;
+  // }
 
-  useEffect(() => {
-    const onScroll = () => setOffset(window.pageYOffset);
+  // useEffect(() => {
+  //   const onScroll = () => setOffset(window.pageYOffset);
 
-    window.removeEventListener('scroll', onScroll);
-    window.addEventListener('scroll', onScroll, { passive: true });
+  //   window.removeEventListener('scroll', onScroll);
+  //   window.addEventListener('scroll', onScroll, { passive: true });
     
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  //   return () => window.removeEventListener('scroll', onScroll);
+  // }, []);
 
-  if(offset === 0) {
-    showNavbar();
-  }
+  // if(offset === 0) {
+  //   showNavbar();
+  // }
 
-  if(canSendHideNavbar.current && offset >= 20) {
-    hideNavbar();
-  }
+  // if(canSendHideNavbar.current && offset >= 20) {
+  //   hideNavbar();
+  // }
 
   useEffect(() => {
     sendMessage({
