@@ -1,13 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import '../App.css';
-import { HomeTopNavbar } from '../components/HomeTopNavbar';
-import { ProductCard } from '../components/ProductCard';
-import { sendMessage } from '../helper/sendMessage';
+import '../../App.css';
+import { sendMessage } from '../../helper/sendMessage';
+import { ProductList } from '../product/ProductList';
+import { SearchScreen } from '../search/SearchScreen';
 
 export const HomeScreen = () => {
-
-  const n: number = 50;
 
   const [offset, setOffset] = useState(0);
   const canSendHideNavbar = useRef(true);
@@ -54,10 +52,9 @@ export const HomeScreen = () => {
 
   return (
     <div className='HomeScreen'>
-      <HomeTopNavbar />
-      {
-        [...Array(n)].map((e,index) => <ProductCard key={index} />)
-      }
+      <SearchScreen />
+      <ProductList category={'Electrónica'} />
+      <ProductList category={'Libros'} />
     </div>
   )
 }
