@@ -11,7 +11,7 @@ export const ProductDetailsTopNavbar = ({ productName = 'producto' }) => {
   
   const close = () => {
     sendMessage({
-      type: 'order',
+      action: 'mktpOrder',
       message: 'close'
     });
   }

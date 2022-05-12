@@ -16,18 +16,18 @@ export const ProductDetailsScreen = () => {
 
   useEffect(() => {
     sendMessage({
-      type: 'order',
+      action: 'mktpOrder',
       message: 'hideNavbar'
     });
     sendMessage({
-      type: 'order',
+      action: 'mktpOrder',
       message: 'hideTabs'
     });
   }, []);
 
   const cancel = () => {
     sendMessage({
-      type: 'order',
+      action: 'mktpOrder',
       message: 'cancel'
     });
   }
@@ -35,16 +35,16 @@ export const ProductDetailsScreen = () => {
   const buyItem = () => {
     setShopList(shopList + 1);
     sendMessage({
-      type: 'status',
-      message: 'buying'
+      action: 'mktpStatus',
+      message: 'shoppingcartFull'
     });
   }
 
   const deleteItem = () => {
     setShopList(0);
     sendMessage({
-      type: 'status',
-      message: 'notBuying'
+      action: 'mktpStatus',
+      message: 'shoppingcartEmpty'
     });
   }
 

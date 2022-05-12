@@ -12,7 +12,7 @@ export const HomeScreen = () => {
 
   // const showNavbar = () => {
   //   sendMessage({
-  //     type: 'order',
+  //     action: 'mktpOrder',
   //     message: 'showNavbar'
   //   });
   //   canSendHideNavbar.current = true;
@@ -20,7 +20,7 @@ export const HomeScreen = () => {
 
   // const hideNavbar = () => {
   //   sendMessage({
-  //     type: 'order',
+  //     action: 'mktpOrder',
   //     message: 'hideNavbar'
   //   });
   //   canSendHideNavbar.current = false;
@@ -45,11 +45,11 @@ export const HomeScreen = () => {
 
   useEffect(() => {
     sendMessage({
-      type: 'order',
+      action: 'mktpOrder',
       message: 'showTabs'
     });
     sendMessage({
-      type: 'order',
+      action: 'mktpOrder',
       message: 'showNavbar'
     });
   }, []);
