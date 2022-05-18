@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 
 import '../../App.css';
 import { sendMessage } from '../../helper/sendMessage';

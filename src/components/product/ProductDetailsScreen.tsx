@@ -1,15 +1,16 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import { Nav } from 'react-bootstrap';
 
 import '../../App.css';
 import { ProductDetailsTopNavbar } from './ProductDetailsTopNavbar';
 import { sendMessage } from '../../helper/sendMessage';
 import { getProductById } from '../../selectors/getProductById';
+import { AuthContext } from '../../auth/authContext';
+import { types } from '../../types/types';
 
 
 export const ProductDetailsScreen = () => {
-  const [shopList, setShopList] = useState(0);
+  const { user, dispatch } = useContext(AuthContext);
   const { productId } = useParams();
 
   const product = useMemo(() => getProductById(productId), [productId]);
@@ -32,19 +33,14 @@ export const ProductDetailsScreen = () => {
     });
   }
 
-  const buyItem = () => {
-    setShopList(shopList + 1);
+  const buyItem = (productName: string) => {
+    dispatch({
+      type: types.addItem,
+      payload: { shoppingcard: [...user.shoppingcard, productName] }
+    });
     sendMessage({
       action: 'mktpStatus',
       message: 'shoppingcartFull'
-    });
-  }
-
-  const deleteItem = () => {
-    setShopList(0);
-    sendMessage({
-      action: 'mktpStatus',
-      message: 'shoppingcartEmpty'
     });
   }
 
@@ -87,28 +83,22 @@ export const ProductDetailsScreen = () => {
           <h5 className='mt-5'>Descripción</h5>
           <p>{productDescription}</p>
           <button
-            className='btn btn-outline-info m-1'
-            onClick={buyItem}
+            className='btn btn-outline-info m-1 ProductCard__btn'
+            onClick={() => buyItem(productName)}
           >
             Comprar
           </button>
           <button
-            className='btn btn-outline-info m-1'
+            className='btn btn-outline-info m-1 ProductCard__btn'
             onClick={cancel}
           >
             Cancelar
           </button>
         </div>
       </div>
-
-      {
-        (shopList !== 0) && (
-          <>
-            <h2 className='ProductDetailsScreen__title'>Carrito: {shopList}</h2>
-            <Nav.Link onClick={deleteItem}>Borrar</Nav.Link>
-          </>
-        )
-      }
+      <div className='row mt-2'>
+        Carrito: { user.shoppingcard.length }
+      </div>
     </div>
   )
 }

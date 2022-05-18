@@ -1,12 +1,14 @@
-import { useMemo } from 'react';
+import { useMemo, useContext } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 
 import { useForm } from '../../hooks/useForm';
 import { getProductsByName } from '../../selectors/getProductsByName';
 import { HeroCard } from '../product/HeroCard';
+import { AuthContext } from '../../auth/authContext';
 
 export const SearchScreen = () => {
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -29,6 +31,13 @@ export const SearchScreen = () => {
     <>
       <div className='row'>
         <form className='d-flex mt-4' onSubmit={handleSearch}>
+          <button
+            className="btn btn-light"
+            onClick={() => navigate('shoppingcard')}
+          >
+            { user.shoppingcard.length }
+          </button>
+
           <input
             type='text'
             placeholder='Qué estás buscando'
@@ -45,6 +54,7 @@ export const SearchScreen = () => {
           >
             <i className="bi bi-cart"></i>
           </button>
+          
         </form>
       </div>
 

@@ -26,9 +26,13 @@ return (
               {productDescription} <br/>
               <small className='text-muted'>{productPublisher}</small>
             </div>
-            <Link to={`/product/${id}`}>
-              Comprar
-            </Link>
+
+            <div className='mt-3'>
+              <Link className='ProductCard__btn' to={`/product/${id}`}>
+                Comprar
+              </Link>
+            </div>
+            
           </div>
         </div>
       </div>

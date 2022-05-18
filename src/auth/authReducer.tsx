@@ -17,6 +17,18 @@ export const authReducer = ( state = {}, action: any ) => {
       return {
         logged: false,
       }
+    case types.addItem:
+      return {
+        ...state,
+        protectShoppingcard: true,
+        ...action.payload,
+      }
+    case types.deleteItem:
+      return {
+        ...state,
+        protectShoppingcard: false,
+        shoppingcard: []
+      }
     default:
       return state;
   }

@@ -39,6 +39,7 @@ code {
 }
 .ProductCard__btn {
   text-decoration: none;
+  z-index: 10;
 }
 .ProductCard__img {
   align-self: center;
