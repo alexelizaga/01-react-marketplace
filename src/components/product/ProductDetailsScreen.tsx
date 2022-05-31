@@ -1,16 +1,18 @@
-import { useContext, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
 import '../../App.css';
 import { ProductDetailsTopNavbar } from './ProductDetailsTopNavbar';
 import { sendMessage } from '../../helper/sendMessage';
 import { getProductById } from '../../selectors/getProductById';
-import { AuthContext } from '../../auth/authContext';
-import { types } from '../../types/types';
+import { useDispatch, useSelector } from 'react-redux';
+import { shopAddItem } from '../../actions/shopActions';
 
 
 export const ProductDetailsScreen = () => {
-  const { user, dispatch } = useContext(AuthContext);
+
+  const { shoppingcard } = useSelector<any, any>(state => state.shop);
+  const dispatch = useDispatch();
   const { productId } = useParams();
 
   const product = useMemo(() => getProductById(productId), [productId]);
@@ -34,10 +36,7 @@ export const ProductDetailsScreen = () => {
   }
 
   const buyItem = (productName: string) => {
-    dispatch({
-      type: types.addItem,
-      payload: { shoppingcard: [...user.shoppingcard, productName] }
-    });
+    dispatch( shopAddItem(productName) )
     sendMessage({
       action: 'mktpStatus',
       message: 'shoppingcartFull'
@@ -97,7 +96,7 @@ export const ProductDetailsScreen = () => {
         </div>
       </div>
       <div className='row mt-2'>
-        Carrito: { user.shoppingcard.length }
+        Carrito: { shoppingcard?.length || '0' }
       </div>
     </div>
   )

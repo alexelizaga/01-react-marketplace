@@ -1,32 +1,17 @@
-import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import { AuthContext } from '../../auth/authContext';
-import { types } from '../../types/types';
+import { authLogin } from '../../actions/authActions';
 
 export const LoginScreen = () => {
-  const { dispatch } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogin = () => {
-    const action = {
-      type: types.login,
-      payload: { name: 'Alex' }
-    }
-
-    dispatch(action);
-
-    const lastPath = localStorage.getItem('lastPath') || '/';
-
-    navigate(lastPath, {
-      replace: true,
-    });
-
+    dispatch( authLogin('Alex', 'aaaabbbbccccdddd') );
   }
 
   return (
     <div className="container mt-5">
-      <h1>LoginScreen</h1>
+      <h1>Manual login</h1>
       <hr />
 
       <button

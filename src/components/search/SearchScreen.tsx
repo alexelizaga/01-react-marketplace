@@ -1,14 +1,16 @@
-import { useMemo, useContext } from 'react';
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import queryString from 'query-string';
 
 import { useForm } from '../../hooks/useForm';
 import { getProductsByName } from '../../selectors/getProductsByName';
 import { HeroCard } from '../product/HeroCard';
-import { AuthContext } from '../../auth/authContext';
+
 
 export const SearchScreen = () => {
-  const { user } = useContext(AuthContext);
+
+  const { shoppingcard } = useSelector<any, any>( state => state.shop );
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -33,9 +35,9 @@ export const SearchScreen = () => {
         <form className='d-flex mt-4' onSubmit={handleSearch}>
           <button
             className="btn btn-light"
-            onClick={() => navigate('shoppingcard')}
+            onClick={() => navigate('/shoppingcard')}
           >
-            { user.shoppingcard.length }
+            { shoppingcard?.length || '0' }
           </button>
 
           <input

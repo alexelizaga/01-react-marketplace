@@ -1,17 +1,17 @@
-import { useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { AuthContext } from '../../auth/authContext';
 import { ProductDetailsTopNavbar } from '../product/ProductDetailsTopNavbar';
 import { sendMessage } from '../../helper/sendMessage';
-import { types } from '../../types/types';
+import { shopDeleteItem } from '../../actions/shopActions';
+
 
 export const ShoppingcardScreen = () => {
-  const { user, dispatch } = useContext(AuthContext);
+
+  const { shoppingcard } = useSelector<any, any>(state => state.shop);
+  const dispatch = useDispatch();
 
   const deleteItem = () => {
-    dispatch({
-      type: types.deleteItem
-    });
+    dispatch( shopDeleteItem() );
 
     sendMessage({
       action: 'mktpStatus',
@@ -21,19 +21,19 @@ export const ShoppingcardScreen = () => {
 
   return (
     <>
-      <ProductDetailsTopNavbar productName={`Carrito: ${user.shoppingcard.length}`} />
-      Carrito: { user.shoppingcard.length }
+      <ProductDetailsTopNavbar productName={`Carrito: ${shoppingcard.length}`} />
+      Carrito: { shoppingcard.length }
 
       <ul className='mt-2'>
         {
-          user.shoppingcard.map( (shoppingItem: any, index: number) => (
+          shoppingcard.map( (shoppingItem: any, index: number) => (
             <li key={ shoppingItem + index }>{ `${shoppingItem}, `  }</li>
           ))
         }
       </ul>
 
       {
-        ( user.shoppingcard.length ) && (
+        ( shoppingcard.length ) && (
           <button
             className='btn btn-outline-info m-1'
             onClick={ deleteItem }

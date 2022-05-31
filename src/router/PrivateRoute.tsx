@@ -1,17 +1,25 @@
-import { useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
+import queryString from 'query-string';
 
-import { AuthContext } from '../auth/authContext';
+import { uiSetEntryPath } from '../actions/uiActions';
+import { authLogin } from '../actions/authActions';
 
 export const PrivateRoute = ({ children }: any) => {
 
-  const { user } = useContext(AuthContext);
-
+  const dispatch = useDispatch();
   const location = useLocation();
 
-  localStorage.setItem('lastPath', location.pathname + location.search );
+  const { at: atParams = '' } = queryString.parse(location.search);
+  const { at: atAuth } = useSelector((state: any) => state.auth); 
 
-  return user.logged
+  if (atAuth === '' && atParams !== '') {
+    dispatch( authLogin('Alex', atParams) );
+    dispatch( uiSetEntryPath(location.pathname) );
+  }
+
+  return (atAuth !== '' || atParams !== '')
     ? children
     : <Navigate to={'/login'} />
+
 }
