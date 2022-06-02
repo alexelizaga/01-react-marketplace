@@ -23,7 +23,7 @@ export const ProductDetailsTopNavbar = ({ productName = 'producto' }) => {
   return (
     <Navbar bg="light" variant="light" expand="lg" fixed="top">
       <Container>
-        <Navbar.Brand onClick={handleReturn} as={Link} to="/">
+        <Navbar.Brand onClick={handleReturn}>
           <i className="icon-size bi bi-arrow-left-short"></i>
         </Navbar.Brand>
         <div className='space'></div>

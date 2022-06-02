@@ -1,4 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
+import { AnotherPageDetailScreen } from '../components/another-page/AnotherPageDetailScreen';
+import { AnotherPageScreen } from '../components/another-page/AnotherPageScreen';
 
 import { HomeScreen } from '../components/home/HomeScreen';
 import { MyOrdersScreen } from '../components/my-orders/MyOrdersScreen';
@@ -16,6 +18,8 @@ export const DashboardRoutes = () => {
         <Route path="marketplace_my_orders" element={<MyOrdersScreen />} />
         <Route path="order/:purchaseId" element={<OrderDetailsScreen />} />
         <Route path="" element={<HomeScreen />} />
+        <Route path="page/:Id" element={<AnotherPageDetailScreen />} />
+        <Route path="*" element={<AnotherPageScreen />} />
       </Routes>
     </div>
   )
