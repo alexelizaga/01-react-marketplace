@@ -2,10 +2,15 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 100vh;
+    justify-content: flex-start;
+    height: 150vh;
+    padding-top: 200px;
   }
 
   .my_orders__title {
     color: $primary;
+  }
+
+  .my_orders__list {
+    height: 1000px;
   }
