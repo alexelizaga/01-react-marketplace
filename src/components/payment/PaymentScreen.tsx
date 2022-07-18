@@ -25,18 +25,11 @@ export const PaymentScreen = () => {
     
     return (
         <>
-            <h1 className='mt-5'>Tarjetas</h1>
             <CreditCard
                 name='Camen Product Owner'
                 number='5412 3456 7890 1234'
                 date='12/20'
                 backgroundColor='#c0ca33'
-            />
-            <CreditCard
-                name='Peter Scrum Master'
-                number='5412 3456 7890 4321'
-                date='12/20'
-                backgroundColor='#ab47bc'
             />
             <CreditCard
                 name='Pablo Team Leader'
