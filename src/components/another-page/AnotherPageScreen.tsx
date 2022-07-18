@@ -18,8 +18,8 @@ export const AnotherPageScreen = () => {
 
   return (
     <div className="my_orders__main">
-      <h1 className="my_orders__title">Page: { pathname }</h1>
-      <h2 className="my_orders__title">First level</h2>
+      <h2 className="my_orders__title">Page: { pathname }</h2>
+      <h3 className="my_orders__title">First level</h3>
       <Link className='btn btn-primary mt-3' to={'/page/123'}>Detail Page</Link>
     </div>
   )
