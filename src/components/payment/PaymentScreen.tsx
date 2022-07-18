@@ -25,6 +25,7 @@ export const PaymentScreen = () => {
     
     return (
         <>
+            <h1>Tarjetas</h1>
             <CreditCard
                 name='Camen Product Owner'
                 number='5412 3456 7890 1234'
