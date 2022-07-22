@@ -27,7 +27,7 @@ export const ProductDetailsTopNavbar = ({ productName = 'producto' }) => {
           <i className="icon-size bi bi-arrow-left-short"></i>
         </Navbar.Brand>
         <div className='space'></div>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand>
           {/* <img
             alt=""
             src="/assets/red.png"
