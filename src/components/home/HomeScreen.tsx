@@ -4,6 +4,7 @@ import '../../App.css';
 import { sendMessage } from '../../helper/sendMessage';
 import { ProductList } from '../product/ProductList';
 import { SearchScreen } from '../search/SearchScreen';
+import { GenericErrorButton } from '../GenericErrorButton';
 
 export const HomeScreen = () => {
 
@@ -59,6 +60,7 @@ export const HomeScreen = () => {
       <SearchScreen />
       <ProductList category={'Electrónica'} />
       <ProductList category={'Libros'} />
+      <GenericErrorButton />
     </div>
   )
 }

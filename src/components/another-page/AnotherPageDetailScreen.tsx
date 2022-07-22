@@ -25,8 +25,8 @@ export const AnotherPageDetailScreen = () => {
   return (
     <div className="my_orders__main">
         <ProductDetailsTopNavbar productName="Page Detail" />
-        <h2 className="my_orders__title">Second level</h2>
-        <Button className='mt-3' onClick={handleReturn}>Back</Button>
+        <h2 className="my_orders__title">Segundo nivel</h2>
+        <Button className='mt-3' onClick={handleReturn}>Primer nivel</Button>
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import { sendMessage } from '../../helper/sendMessage';
 import { CreditCard } from './CreditCard';
+import { GenericErrorButton } from '../GenericErrorButton';
 
 export const PaymentScreen = () => {
 
@@ -15,13 +16,6 @@ export const PaymentScreen = () => {
           message: 'showNavbar'
         });
     }, []);
-
-    const onOk = () => {
-        sendMessage({
-          action: 'mktpOrder',
-          message: 'fullClose'
-        });
-      }
     
     return (
         <>
@@ -37,13 +31,7 @@ export const PaymentScreen = () => {
                 number='5412 3456 7890 3412'
                 date='12/20'
             />
-            <h1>Error Genérico</h1>
-            <button
-                className='btn btn-outline-info m-1'
-                onClick={ onOk }
-            >
-                Entendido
-            </button>
+            <GenericErrorButton />
         </>
     )
 }
